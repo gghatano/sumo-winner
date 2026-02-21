@@ -1,0 +1,17 @@
+{
+  "source": "https://sports.yahoo.co.jp/sumo/torikumi/202601/12",
+  "basho": { "id": "202601", "label": "2026年1月場所" },
+  "day": 12,
+  "updatedAt": "2026-01-22T09:05:00Z",
+  "division": "makuuchi",
+  "matches": [
+    { "east": "高安", "west": "大の里" },
+    { "east": "豊昇龍", "west": "霧島" },
+    { "east": "琴櫻", "west": "若隆景" },
+    { "east": "翔猿", "west": "御嶽海" },
+    { "east": "熱海富士", "west": "阿炎" },
+    { "east": "大栄翔", "west": "宇良" },
+    { "east": "王鵬", "west": "正代" },
+    { "east": "隆の勝", "west": "玉鷲" }
+  ]
+}
