@@ -19,11 +19,10 @@ const DAY_MAP: Record<number, string> = {
 }
 
 export function dayToKanji(day: number): string {
-  const result = DAY_MAP[day]
-  if (!result) {
-    throw new Error(`Invalid day: ${day}. Must be between 1 and 15.`)
+  if (!Number.isFinite(day) || day < 1 || day > 15) {
+    return `${day}日目`
   }
-  return result
+  return DAY_MAP[day]
 }
 
 function generateHeader(day: number): string {
