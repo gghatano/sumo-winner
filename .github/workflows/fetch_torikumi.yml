@@ -1,0 +1,54 @@
+name: Fetch Torikumi Data
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # 毎時
+  workflow_dispatch:  # 手動実行可能
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch torikumi data
+        run: python scripts/fetch_torikumi.py
+        continue-on-error: true
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git add public/data/torikumi/
+          if git diff --cached --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # コミットメッセージにbashoIdとdayを含める
+          LATEST_JSON="public/data/torikumi/latest.json"
+          if [ -f "$LATEST_JSON" ]; then
+            BASHO_ID=$(python -c "import json; d=json.load(open('$LATEST_JSON')); print(d.get('basho',{}).get('id','unknown'))")
+            DAY=$(python -c "import json; d=json.load(open('$LATEST_JSON')); print(d.get('day','unknown'))")
+            git commit -m "chore(data): update torikumi ${BASHO_ID} day ${DAY}"
+          else
+            git commit -m "chore(data): update torikumi data"
+          fi
+          git push
