@@ -31,3 +31,17 @@ body {
 main {
   padding: 1rem 0;
 }
+
+.prediction-preview {
+  margin-top: 1.5rem;
+}
+.preview-textarea {
+  width: 100%;
+  font-family: monospace;
+  font-size: 1rem;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  background: #f9f9f9;
+}
