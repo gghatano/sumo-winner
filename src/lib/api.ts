@@ -1,12 +1,13 @@
 import type { TorikumiData, TorikumiIndex } from '../types'
-import { validateTorikumiData } from './validate'
+import { validateTorikumiData, validateTorikumiIndex } from './validate'
 
 const BASE_URL = import.meta.env.BASE_URL
 
 export async function fetchIndex(): Promise<TorikumiIndex> {
   const res = await fetch(`${BASE_URL}data/torikumi/index.json`)
   if (!res.ok) throw new Error(`Failed to fetch index: ${res.status}`)
-  return res.json()
+  const data = await res.json()
+  return validateTorikumiIndex(data)
 }
 
 export async function fetchLatest(): Promise<TorikumiData> {

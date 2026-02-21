@@ -1,4 +1,4 @@
-import type { TorikumiData } from '../types'
+import type { TorikumiData, TorikumiIndex } from '../types'
 
 export function validateTorikumiData(data: unknown): TorikumiData {
   if (typeof data !== 'object' || data === null) {
@@ -34,4 +34,38 @@ export function validateTorikumiData(data: unknown): TorikumiData {
   }
 
   return data as TorikumiData
+}
+
+export function validateTorikumiIndex(data: unknown): TorikumiIndex {
+  if (typeof data !== 'object' || data === null) {
+    throw new Error('Invalid index data: not an object')
+  }
+  const d = data as Record<string, unknown>
+
+  // bashoList
+  if (!Array.isArray(d.bashoList)) {
+    throw new Error('Invalid index data: bashoList is not an array')
+  }
+  for (const basho of d.bashoList) {
+    if (typeof basho !== 'object' || basho === null) {
+      throw new Error('Invalid index data: invalid basho entry')
+    }
+    if (typeof basho.id !== 'string' || typeof basho.label !== 'string') {
+      throw new Error('Invalid index data: basho missing id/label')
+    }
+    if (typeof basho.days !== 'number' || basho.days < 1) {
+      throw new Error('Invalid index data: basho has invalid days')
+    }
+  }
+
+  // latest
+  if (typeof d.latest !== 'object' || d.latest === null) {
+    throw new Error('Invalid index data: missing latest')
+  }
+  const latest = d.latest as Record<string, unknown>
+  if (typeof latest.bashoId !== 'string' || typeof latest.day !== 'number') {
+    throw new Error('Invalid index data: invalid latest fields')
+  }
+
+  return data as TorikumiIndex
 }
