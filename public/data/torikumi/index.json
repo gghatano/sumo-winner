@@ -1,0 +1,6 @@
+{
+  "bashoList": [
+    { "id": "202601", "label": "2026年1月場所", "days": 15 }
+  ],
+  "latest": { "bashoId": "202601", "day": 12 }
+}

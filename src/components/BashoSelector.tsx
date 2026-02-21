@@ -1,4 +1,4 @@
-import type { Basho } from '../types'
+import type { BashoInfo } from '../types'
 
 const DAY_LABELS: Record<number, string> = {
   1: '初日',
@@ -19,18 +19,31 @@ const DAY_LABELS: Record<number, string> = {
 }
 
 interface Props {
-  basho: Basho
+  bashoList: BashoInfo[]
+  selectedBashoId: string
   day: number
+  onBashoChange: (bashoId: string) => void
   onDayChange: (day: number) => void
 }
 
-export default function BashoSelector({ basho, day, onDayChange }: Props) {
+export default function BashoSelector({ bashoList, selectedBashoId, day, onBashoChange, onDayChange }: Props) {
+  const currentBasho = bashoList.find(b => b.id === selectedBashoId)
+  const maxDays = currentBasho?.days ?? 15
+
   return (
     <div className="basho-selector">
       <div className="selector-group">
         <label htmlFor="basho-select">場所</label>
-        <select id="basho-select" value={basho.id} disabled>
-          <option value={basho.id}>{basho.label}</option>
+        <select
+          id="basho-select"
+          value={selectedBashoId}
+          onChange={(e) => onBashoChange(e.target.value)}
+        >
+          {bashoList.map((b) => (
+            <option key={b.id} value={b.id}>
+              {b.label}
+            </option>
+          ))}
         </select>
       </div>
       <div className="selector-group">
@@ -40,9 +53,9 @@ export default function BashoSelector({ basho, day, onDayChange }: Props) {
           value={day}
           onChange={(e) => onDayChange(Number(e.target.value))}
         >
-          {Array.from({ length: 15 }, (_, i) => i + 1).map((d) => (
+          {Array.from({ length: maxDays }, (_, i) => i + 1).map((d) => (
             <option key={d} value={d}>
-              {DAY_LABELS[d]}
+              {DAY_LABELS[d] ?? `${d}日目`}
             </option>
           ))}
         </select>
