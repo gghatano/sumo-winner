@@ -38,13 +38,18 @@ function App() {
   }, [])
 
   const handleBashoChange = async (newBashoId: string) => {
-    setSelectedBashoId(newBashoId)
-    setDay(1)
+    if (!newBashoId) return
+    setFetching(true)
     try {
       const newData = await fetchTorikumi(newBashoId, 1)
+      setSelectedBashoId(newBashoId)
+      setDay(1)
       setData(newData)
-    } catch {
-      // データが無い場合はそのまま
+    } catch (e) {
+      console.warn('Failed to fetch torikumi for basho:', e)
+      // ロールバック: 何も変更しない
+    } finally {
+      setFetching(false)
     }
   }
 

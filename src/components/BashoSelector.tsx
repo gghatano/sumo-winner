@@ -38,6 +38,7 @@ export default function BashoSelector({ bashoList, selectedBashoId, day, onBasho
         <select
           id="basho-select"
           value={selectedBashoId}
+          disabled={disabled}
           onChange={(e) => onBashoChange(e.target.value)}
         >
           {bashoList.map((b) => (
