@@ -352,15 +352,26 @@ def main() -> None:
 
     # Fetch and save
     latest_data: dict | None = None
+    success_count = 0
+    fail_count = 0
     for d in days:
         data = fetch_and_save(basho_id, d, output_dir)
         if data is not None:
             latest_data = data
+            success_count += 1
+        else:
+            logger.warning("Day %d の取得に失敗", d)
+            fail_count += 1
 
     # Update latest.json with the last successful result
     if latest_data is not None:
         save_json(latest_data, output_dir / "latest.json")
 
+    if success_count == 0 and fail_count > 0:
+        logger.error("全ての取得に失敗しました")
+        sys.exit(1)
+
+    logger.info("完了: 成功=%d, 失敗=%d", success_count, fail_count)
     sys.exit(0)
 
 
