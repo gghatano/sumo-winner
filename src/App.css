@@ -28,6 +28,136 @@ body {
   color: #8b4513;
 }
 
+.updated-at {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 0.4rem;
+}
+
 main {
   padding: 1rem 0;
+}
+
+/* Status messages */
+.status-message {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+.status-message.error {
+  color: #c0392b;
+}
+
+/* Basho Selector */
+.basho-selector {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.selector-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.selector-group label {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.selector-group select {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  background: #fff;
+  cursor: pointer;
+}
+
+.selector-group select:disabled {
+  background: #eee;
+  cursor: default;
+}
+
+/* Match List */
+.match-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.match-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.match-card .wrestler {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.match-card .wrestler:hover {
+  background-color: #f0f0f0;
+}
+
+.match-card .wrestler.east {
+  text-align: right;
+}
+
+.match-card .wrestler.west {
+  text-align: left;
+}
+
+.match-card .wrestler.east.selected {
+  background-color: #d6eaf8;
+  color: #1a5276;
+}
+
+.match-card .wrestler.west.selected {
+  background-color: #fadbd8;
+  color: #922b21;
+}
+
+.match-card .vs {
+  padding: 0 0.5rem;
+  color: #999;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+  .app {
+    padding: 0.5rem;
+  }
+
+  .app-header h1 {
+    font-size: 1.2rem;
+  }
+
+  .match-card .wrestler {
+    padding: 0.6rem 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .basho-selector {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
