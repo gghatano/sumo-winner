@@ -22,9 +22,10 @@ interface Props {
   basho: Basho
   day: number
   onDayChange: (day: number) => void
+  disabled?: boolean
 }
 
-export default function BashoSelector({ basho, day, onDayChange }: Props) {
+export default function BashoSelector({ basho, day, onDayChange, disabled }: Props) {
   return (
     <div className="basho-selector">
       <div className="selector-group">
@@ -38,6 +39,7 @@ export default function BashoSelector({ basho, day, onDayChange }: Props) {
         <select
           id="day-select"
           value={day}
+          disabled={disabled}
           onChange={(e) => onDayChange(Number(e.target.value))}
         >
           {Array.from({ length: 15 }, (_, i) => i + 1).map((d) => (

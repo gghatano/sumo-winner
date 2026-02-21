@@ -12,6 +12,7 @@ function App() {
   const [data, setData] = useState<TorikumiData | null>(null)
   const [day, setDay] = useState<number>(1)
   const [loading, setLoading] = useState(true)
+  const [fetching, setFetching] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   const bashoId = data?.basho.id ?? ''
@@ -31,12 +32,16 @@ function App() {
 
   const handleDayChange = async (newDay: number) => {
     if (!data) return
-    setDay(newDay)
+    setFetching(true)
     try {
       const newData = await fetchTorikumi(data.basho.id, newDay)
       setData(newData)
-    } catch {
-      // データが無い日はそのまま
+      setDay(newDay)
+    } catch (e) {
+      console.warn('Failed to fetch torikumi:', e)
+      // dayを変更しない = ロールバック
+    } finally {
+      setFetching(false)
     }
   }
 
@@ -74,7 +79,7 @@ function App() {
         <h1>大相撲 取組予想メモ</h1>
         <p className="updated-at">データ更新: {new Date(data.updatedAt).toLocaleString('ja-JP')}</p>
       </header>
-      <BashoSelector basho={data.basho} day={day} onDayChange={handleDayChange} />
+      <BashoSelector basho={data.basho} day={day} onDayChange={handleDayChange} disabled={fetching} />
       <MatchList
         matches={data.matches}
         predictions={predictions}
