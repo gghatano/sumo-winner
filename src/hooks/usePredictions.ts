@@ -9,11 +9,13 @@ export function usePredictions(bashoId: string, day: number, division: string) {
 
   // bashoId/day/division が変わったらlocalStorageから復元
   useEffect(() => {
+    if (!bashoId) return
     setPredictionsState(loadPredictions(bashoId, day, division))
   }, [bashoId, day, division])
 
   // predictions が変わったらlocalStorageに保存
   useEffect(() => {
+    if (!bashoId) return
     savePredictions(bashoId, day, division, predictions)
   }, [bashoId, day, division, predictions])
 
