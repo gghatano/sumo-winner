@@ -41,7 +41,7 @@ Yahoo!スポーツナビの取組ページからHTMLを解析し、JSONファイ
    - 出力JSONがスキーマに準拠することの検証
 
 ## 完了条件
-- `python scripts/fetch_torikumi.py` を実行すると `public/data/torikumi/` にJSONが生成される
+- `python3 scripts/fetch_torikumi.py` を実行すると `public/data/torikumi/` にJSONが生成される
 - 出力JSONがREQUIREMENTS.mdのスキーマに準拠している
 - 取得失敗時にエラーで止まらず、前回データが保持される
 - User-Agent、リトライが実装されている

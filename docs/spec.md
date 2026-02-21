@@ -173,8 +173,8 @@
 * Steps:
 
   1. checkout
-  2. python setup
-  3. `python scripts/fetch_torikumi.py`
+  2. python3 setup
+  3. `python3 scripts/fetch_torikumi.py`
   4. 差分があればコミット＆push
 * コミットメッセージ：`chore(data): update torikumi {bashoId} day {day}`
 
