@@ -61,7 +61,7 @@ class TestParseTorikumi:
 
     def test_broken_html_does_not_raise(self):
         matches = parse_torikumi("<html><body><div><<<broken>>>")
-        assert isinstance(matches, list)
+        assert matches == []
 
     def test_html_without_makuuchi_returns_empty(self):
         html = """
@@ -70,10 +70,14 @@ class TestParseTorikumi:
         <table><tr><td>A</td><td>-</td><td>B</td></tr></table>
         </body></html>
         """
-        # This may or may not return results depending on fallback strategy.
-        # The important thing is it doesn't crash.
         matches = parse_torikumi(html)
-        assert isinstance(matches, list)
+        assert matches == []
+
+    def test_juryo_only_fixture_returns_empty(self):
+        """十両セクションのみのHTMLで空配列が返ることを検証する。"""
+        html = _read_fixture("sample_juryo_only.html")
+        matches = parse_torikumi(html)
+        assert matches == []
 
     def test_table_without_class_hints(self):
         """Tables without east/west classes should still be parsed positionally."""

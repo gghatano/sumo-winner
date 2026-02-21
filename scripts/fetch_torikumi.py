@@ -151,13 +151,9 @@ def parse_torikumi(html: str) -> list[dict[str, str]]:
                             return matches
                 sibling = sibling.find_next_sibling()
 
-    # Strategy 4: last resort — scan all tables for east/west patterns
-    for table in soup.find_all("table"):
-        matches = _parse_table(table)
-        if matches:
-            return matches
-
-    return matches
+    # 幕内セクションが見つからなかった場合は空リストを返す
+    logger.warning("幕内セクションが見つかりませんでした")
+    return []
 
 
 def _find_makuuchi_section(soup: BeautifulSoup):
