@@ -141,6 +141,40 @@ main {
   flex-shrink: 0;
 }
 
+/* Prediction Preview */
+.prediction-preview {
+  margin-top: 1.5rem;
+}
+.preview-textarea {
+  width: 100%;
+  font-family: monospace;
+  font-size: 1rem;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  background: #f9f9f9;
+}
+
+/* Copy Button */
+.copy-section {
+  margin-top: 1rem;
+  text-align: center;
+}
+.copy-button {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  background: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.copy-button:hover {
+  background: #27ae60;
+}
+
 /* Mobile responsive */
 @media (max-width: 480px) {
   .app {
