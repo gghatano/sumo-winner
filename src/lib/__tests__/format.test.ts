@@ -19,6 +19,24 @@ describe('dayToKanji', () => {
   })
 })
 
+describe('dayToKanji edge cases', () => {
+  it('returns fallback for day 0', () => {
+    expect(dayToKanji(0)).toBe('0日目')
+  })
+
+  it('returns fallback for day 16', () => {
+    expect(dayToKanji(16)).toBe('16日目')
+  })
+
+  it('returns fallback for NaN', () => {
+    expect(dayToKanji(NaN)).toBe('NaN日目')
+  })
+
+  it('returns fallback for negative number', () => {
+    expect(dayToKanji(-1)).toBe('-1日目')
+  })
+})
+
 describe('generatePredictionText', () => {
   const matches = [{ east: '高安', west: '大の里' }]
 
