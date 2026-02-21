@@ -24,9 +24,10 @@ interface Props {
   day: number
   onBashoChange: (bashoId: string) => void
   onDayChange: (day: number) => void
+  disabled?: boolean
 }
 
-export default function BashoSelector({ bashoList, selectedBashoId, day, onBashoChange, onDayChange }: Props) {
+export default function BashoSelector({ bashoList, selectedBashoId, day, onBashoChange, onDayChange, disabled }: Props) {
   const currentBasho = bashoList.find(b => b.id === selectedBashoId)
   const maxDays = currentBasho?.days ?? 15
 
@@ -51,6 +52,7 @@ export default function BashoSelector({ bashoList, selectedBashoId, day, onBasho
         <select
           id="day-select"
           value={day}
+          disabled={disabled}
           onChange={(e) => onDayChange(Number(e.target.value))}
         >
           {Array.from({ length: maxDays }, (_, i) => i + 1).map((d) => (

@@ -14,6 +14,7 @@ function App() {
   const [selectedBashoId, setSelectedBashoId] = useState<string>('')
   const [day, setDay] = useState<number>(1)
   const [loading, setLoading] = useState(true)
+  const [fetching, setFetching] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   const division = data?.division ?? 'makuuchi'
@@ -48,13 +49,17 @@ function App() {
   }
 
   const handleDayChange = async (newDay: number) => {
-    if (!selectedBashoId) return
-    setDay(newDay)
+    if (!selectedBashoId || !data) return
+    setFetching(true)
     try {
       const newData = await fetchTorikumi(selectedBashoId, newDay)
       setData(newData)
-    } catch {
-      // データが無い日はそのまま
+      setDay(newDay)
+    } catch (e) {
+      console.warn('Failed to fetch torikumi:', e)
+      // dayを変更しない = ロールバック
+    } finally {
+      setFetching(false)
     }
   }
 
@@ -98,6 +103,7 @@ function App() {
         day={day}
         onBashoChange={handleBashoChange}
         onDayChange={handleDayChange}
+        disabled={fetching}
       />
       <MatchList
         matches={data.matches}
