@@ -22,7 +22,7 @@ GitHub Actionsで定期的にスクレイパを実行し、JSONデータを更�
      1. `actions/checkout@v4`
      2. `actions/setup-python@v5`（Python 3.12）
      3. `pip install -r requirements.txt`
-     4. `python scripts/fetch_torikumi.py`
+     4. `python3 scripts/fetch_torikumi.py`
      5. 差分チェック（`git diff --quiet` で判定）
      6. 差分があればコミット＆push
    - コミットメッセージ: `chore(data): update torikumi {bashoId} day {day}`
