@@ -17,5 +17,16 @@ export interface TorikumiData {
   matches: Match[]
 }
 
+export interface BashoInfo {
+  id: string
+  label: string
+  days: number
+}
+
+export interface TorikumiIndex {
+  bashoList: BashoInfo[]
+  latest: { bashoId: string; day: number }
+}
+
 export type Prediction = 'E' | 'W' | null
 export type Predictions = Record<number, Prediction>

@@ -1,39 +1,57 @@
 import { useState, useEffect, useMemo } from 'react'
-import { fetchLatest, fetchTorikumi } from './lib/api'
+import { fetchIndex, fetchTorikumi } from './lib/api'
 import { generatePredictionText } from './lib/format'
 import { usePredictions } from './hooks/usePredictions'
 import BashoSelector from './components/BashoSelector'
 import MatchList from './components/MatchList'
 import { PredictionPreview } from './components/PredictionPreview'
-import type { TorikumiData } from './types'
+import type { TorikumiData, BashoInfo } from './types'
 import './App.css'
 
 function App() {
+  const [bashoList, setBashoList] = useState<BashoInfo[]>([])
   const [data, setData] = useState<TorikumiData | null>(null)
+  const [selectedBashoId, setSelectedBashoId] = useState<string>('')
   const [day, setDay] = useState<number>(1)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  const bashoId = data?.basho.id ?? ''
   const division = data?.division ?? 'makuuchi'
-  const { predictions, setPrediction } = usePredictions(bashoId, day, division)
+  const { predictions, setPrediction } = usePredictions(selectedBashoId, day, division)
 
   useEffect(() => {
-    fetchLatest().then(d => {
-      setData(d)
-      setDay(d.day)
-      setLoading(false)
-    }).catch(e => {
-      setError(e.message)
-      setLoading(false)
-    })
+    fetchIndex()
+      .then(async (index) => {
+        setBashoList(index.bashoList)
+        const { bashoId, day: latestDay } = index.latest
+        setSelectedBashoId(bashoId)
+        setDay(latestDay)
+        const torikumi = await fetchTorikumi(bashoId, latestDay)
+        setData(torikumi)
+        setLoading(false)
+      })
+      .catch((e) => {
+        setError(e.message)
+        setLoading(false)
+      })
   }, [])
 
+  const handleBashoChange = async (newBashoId: string) => {
+    setSelectedBashoId(newBashoId)
+    setDay(1)
+    try {
+      const newData = await fetchTorikumi(newBashoId, 1)
+      setData(newData)
+    } catch {
+      // データが無い場合はそのまま
+    }
+  }
+
   const handleDayChange = async (newDay: number) => {
-    if (!data) return
+    if (!selectedBashoId) return
     setDay(newDay)
     try {
-      const newData = await fetchTorikumi(data.basho.id, newDay)
+      const newData = await fetchTorikumi(selectedBashoId, newDay)
       setData(newData)
     } catch {
       // データが無い日はそのまま
@@ -74,7 +92,13 @@ function App() {
         <h1>大相撲 取組予想メモ</h1>
         <p className="updated-at">データ更新: {new Date(data.updatedAt).toLocaleString('ja-JP')}</p>
       </header>
-      <BashoSelector basho={data.basho} day={day} onDayChange={handleDayChange} />
+      <BashoSelector
+        bashoList={bashoList}
+        selectedBashoId={selectedBashoId}
+        day={day}
+        onBashoChange={handleBashoChange}
+        onDayChange={handleDayChange}
+      />
       <MatchList
         matches={data.matches}
         predictions={predictions}
