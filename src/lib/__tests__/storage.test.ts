@@ -55,4 +55,14 @@ describe('storage', () => {
     expect(loadPredictions('202501', 2, 'makuuchi')).toEqual({ '0': 'W' })
     expect(loadPredictions('202503', 1, 'juryo')).toEqual({ '0': null })
   })
+
+  it('空のbashoIdではsavePredictionsがlocalStorageに書き込まない', () => {
+    savePredictions('', 1, 'makuuchi', { 0: 'E' })
+    expect(localStorage.getItem('predictions::1:makuuchi')).toBeNull()
+  })
+
+  it('空のbashoIdではloadPredictionsが空オブジェクトを返す', () => {
+    const loaded = loadPredictions('', 1, 'makuuchi')
+    expect(loaded).toEqual({})
+  })
 })

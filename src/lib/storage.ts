@@ -12,6 +12,7 @@ export function savePredictions(
   division: string,
   predictions: Predictions
 ): void {
+  if (!bashoId) return
   const key = getKey(bashoId, day, division)
   localStorage.setItem(key, JSON.stringify(predictions))
 }
@@ -21,6 +22,7 @@ export function loadPredictions(
   day: number,
   division: string
 ): Predictions {
+  if (!bashoId) return {}
   const key = getKey(bashoId, day, division)
   const raw = localStorage.getItem(key)
   if (!raw) return {}
