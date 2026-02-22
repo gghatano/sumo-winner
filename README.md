@@ -1,4 +1,4 @@
-# sumo-predict
+# [開発中]sumo-predict
 
 大相撲の取組予想メモ作成を省力化するWebアプリです。
 
