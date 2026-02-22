@@ -7,35 +7,51 @@ interface Props {
 }
 
 export default function MatchList({ matches, predictions, onPredict }: Props) {
-  const handleClick = (index: number, side: 'E' | 'W') => {
-    if (predictions[index] === side) {
-      onPredict(index, null)
-    } else {
-      onPredict(index, side)
+  // デフォルトは東勝ち('E')。nullは発生しない
+  const getPred = (index: number): 'E' | 'W' => predictions[index] ?? 'E'
+
+  // 負け側をクリック → 勝ち予想を反転。勝ち側クリックは何もしない
+  const handleClickEast = (index: number) => {
+    if (getPred(index) !== 'E') {
+      onPredict(index, 'E')
+    }
+  }
+
+  const handleClickWest = (index: number) => {
+    if (getPred(index) !== 'W') {
+      onPredict(index, 'W')
     }
   }
 
   return (
     <div className="match-list">
       {matches.map((match, index) => {
-        const prediction = predictions[index] ?? null
+        const eastWin = getPred(index) === 'E'
         return (
           <div key={index} className="match-card">
-            <button
-              className={`wrestler east${prediction === 'E' ? ' selected' : ''}`}
-              onClick={() => handleClick(index, 'E')}
-              type="button"
+            <div
+              className={`wrestler east${eastWin ? ' winner' : ' loser'}`}
+              onClick={() => handleClickEast(index)}
             >
-              {match.east}
-            </button>
-            <span className="vs">-</span>
-            <button
-              className={`wrestler west${prediction === 'W' ? ' selected' : ''}`}
-              onClick={() => handleClick(index, 'W')}
-              type="button"
+              <span className="wrestler-name">{match.east}</span>
+              <span className={`result-label ${eastWin ? 'win-label' : 'lose-label'}`}>
+                {eastWin ? '(勝ち)' : '(負け)'}
+              </span>
+            </div>
+            <div className="prediction-indicator">
+              <span className={`mark${eastWin ? ' win' : ' lose'}`}>{eastWin ? '\u25CB' : '\u25CF'}</span>
+              <span className="mark-separator">-</span>
+              <span className={`mark${eastWin ? ' lose' : ' win'}`}>{eastWin ? '\u25CF' : '\u25CB'}</span>
+            </div>
+            <div
+              className={`wrestler west${eastWin ? ' loser' : ' winner'}`}
+              onClick={() => handleClickWest(index)}
             >
-              {match.west}
-            </button>
+              <span className="wrestler-name">{match.west}</span>
+              <span className={`result-label ${eastWin ? 'lose-label' : 'win-label'}`}>
+                {eastWin ? '(負け)' : '(勝ち)'}
+              </span>
+            </div>
           </div>
         )
       })}

@@ -99,52 +99,155 @@ main {
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
+  user-select: none;
 }
 
 .match-card .wrestler {
   flex: 1;
   padding: 0.8rem 1rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  border: none;
-  background: transparent;
-  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
   transition: background-color 0.15s;
 }
 
-.match-card .wrestler:hover {
-  background-color: #f0f0f0;
-}
-
 .match-card .wrestler.east {
-  text-align: right;
+  align-items: flex-end;
 }
 
 .match-card .wrestler.west {
-  text-align: left;
+  align-items: flex-start;
 }
 
-.match-card .wrestler.east.selected {
-  background-color: #d6eaf8;
+.match-card .wrestler-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.match-card .result-label {
+  font-size: 0.75rem;
+  font-weight: normal;
+}
+
+.match-card .win-label {
   color: #1a5276;
 }
 
-.match-card .wrestler.west.selected {
-  background-color: #fadbd8;
-  color: #922b21;
+.match-card .lose-label {
+  color: #999;
 }
 
-.match-card .vs {
+.match-card .wrestler.winner {
+  background-color: #d6eaf8;
+  cursor: default;
+}
+
+.match-card .wrestler.loser {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.match-card .wrestler.loser:hover {
+  background-color: #f0f0f0;
+}
+
+/* Prediction indicator (center marks) */
+.prediction-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
   padding: 0 0.5rem;
-  color: #999;
-  font-size: 0.9rem;
   flex-shrink: 0;
+}
+
+.prediction-indicator .mark {
+  font-size: 1.2rem;
+  transition: color 0.15s;
+}
+
+.prediction-indicator .mark.win {
+  color: #333;
+}
+
+.prediction-indicator .mark.lose {
+  color: #999;
+}
+
+.prediction-indicator .mark-separator {
+  color: #ccc;
+  font-size: 0.9rem;
 }
 
 /* Prediction Preview */
 .prediction-preview {
   margin-top: 1.5rem;
 }
+
+.prediction-preview h2 {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 0.75rem;
+}
+
+.prediction-preview h3 {
+  font-size: 0.95rem;
+  color: #777;
+  margin: 1rem 0 0.5rem;
+}
+
+.preview-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.preview-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.preview-label {
+  flex-shrink: 0;
+  width: 7rem;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #666;
+  padding-top: 0.3rem;
+}
+
+.preview-value {
+  font-size: 0.95rem;
+  padding-top: 0.3rem;
+}
+
+.preview-value.source-url {
+  font-size: 0.85rem;
+  color: #888;
+  word-break: break-all;
+}
+
+.preview-input {
+  flex: 1;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.preview-matches {
+  flex: 1;
+  font-family: monospace;
+  font-size: 0.9rem;
+  margin: 0;
+  white-space: pre-wrap;
+  color: #333;
+}
+
 .preview-textarea {
   width: 100%;
   font-family: monospace;
@@ -187,6 +290,9 @@ main {
 
   .match-card .wrestler {
     padding: 0.6rem 0.5rem;
+  }
+
+  .match-card .wrestler-name {
     font-size: 0.95rem;
   }
 

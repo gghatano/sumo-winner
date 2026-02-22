@@ -25,25 +25,47 @@ export function dayToKanji(day: number): string {
   return DAY_MAP[day]
 }
 
-function generateHeader(day: number): string {
-  return `${dayToKanji(day)}（・ω・）ノ`
+export function formatBashoDay(bashoLabel: string, day: number): string {
+  if (day === 15) {
+    return `${bashoLabel}千秋楽`
+  }
+  return `${bashoLabel}${dayToKanji(day)}`
 }
 
-export function generatePredictionText(
-  day: number,
+export function generateMatchLines(
   matches: Match[],
   predictions: Predictions
 ): string {
-  const header = generateHeader(day)
-  const lines = matches.map((match, index) => {
-    const pred = predictions[index] ?? null
-    if (pred === 'E') {
-      return `○${match.east}－${match.west}●`
-    } else if (pred === 'W') {
+  return matches.map((match, index) => {
+    const pred = predictions[index] ?? 'E'
+    if (pred === 'W') {
       return `●${match.east}－${match.west}○`
     } else {
-      return `\u3000${match.east}－${match.west}\u3000`
+      return `○${match.east}－${match.west}●`
     }
-  })
-  return [header, ...lines].join('\n')
+  }).join('\n')
+}
+
+export interface TextParts {
+  sourceUrl: string
+  bashoDay: string
+  headerComment: string
+  matchLines: string
+  footerComment: string
+}
+
+export function assemblePredictionText(parts: TextParts): string {
+  const lines: string[] = []
+  if (parts.sourceUrl) {
+    lines.push(parts.sourceUrl)
+  }
+  lines.push(parts.bashoDay)
+  if (parts.headerComment) {
+    lines.push(parts.headerComment)
+  }
+  lines.push(parts.matchLines)
+  if (parts.footerComment) {
+    lines.push(parts.footerComment)
+  }
+  return lines.join('\n')
 }

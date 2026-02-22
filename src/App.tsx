@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import { fetchIndex, fetchTorikumi } from './lib/api'
-import { generatePredictionText } from './lib/format'
+import { formatBashoDay, generateMatchLines, assemblePredictionText } from './lib/format'
 import { usePredictions } from './hooks/usePredictions'
 import BashoSelector from './components/BashoSelector'
 import MatchList from './components/MatchList'
@@ -68,10 +68,30 @@ function App() {
     }
   }
 
-  const predictionText = useMemo(() => {
+  const [headerComment, setHeaderComment] = useState('（・ω・）ノ')
+  const [footerComment, setFooterComment] = useState('これで')
+
+  const bashoDay = useMemo(() => {
     if (!data) return ''
-    return generatePredictionText(day, data.matches, predictions)
-  }, [day, data, predictions])
+    return formatBashoDay(data.basho.label, day)
+  }, [data, day])
+
+  const matchLines = useMemo(() => {
+    if (!data) return ''
+    return generateMatchLines(data.matches, predictions)
+  }, [data, predictions])
+
+  const sourceUrl = data?.source ?? ''
+
+  const predictionText = useMemo(() => {
+    return assemblePredictionText({
+      sourceUrl,
+      bashoDay,
+      headerComment,
+      matchLines,
+      footerComment,
+    })
+  }, [sourceUrl, bashoDay, headerComment, matchLines, footerComment])
 
   const [copied, setCopied] = useState(false)
   const handleCopy = async () => {
@@ -115,7 +135,16 @@ function App() {
         predictions={predictions}
         onPredict={(index, value) => setPrediction(index, value)}
       />
-      <PredictionPreview text={predictionText} />
+      <PredictionPreview
+        sourceUrl={sourceUrl}
+        bashoDay={bashoDay}
+        headerComment={headerComment}
+        matchLines={matchLines}
+        footerComment={footerComment}
+        fullText={predictionText}
+        onHeaderCommentChange={setHeaderComment}
+        onFooterCommentChange={setFooterComment}
+      />
       <div className="copy-section">
         <button className="copy-button" onClick={handleCopy}>
           {copied ? 'コピーしました！' : 'テキストをコピー'}
