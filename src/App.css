@@ -225,10 +225,15 @@ main {
   padding-top: 0.3rem;
 }
 
-.preview-value.source-url {
+a.preview-value.source-url {
   font-size: 0.85rem;
-  color: #888;
+  color: #2980b9;
   word-break: break-all;
+  text-decoration: none;
+}
+
+a.preview-value.source-url:hover {
+  text-decoration: underline;
 }
 
 .preview-input {

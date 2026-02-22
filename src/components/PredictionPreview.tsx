@@ -26,7 +26,7 @@ export function PredictionPreview({
       <div className="preview-inputs">
         <div className="preview-row">
           <span className="preview-label">参照元</span>
-          <span className="preview-value source-url">{sourceUrl}</span>
+          <a className="preview-value source-url" href={sourceUrl} target="_blank" rel="noopener noreferrer">{sourceUrl}</a>
         </div>
         <div className="preview-row">
           <span className="preview-label">場所・日目</span>

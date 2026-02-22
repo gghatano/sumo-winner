@@ -115,112 +115,146 @@ def parse_torikumi(html: str) -> list[dict[str, str]]:
     Returns a list of dicts with 'east' and 'west' keys.
 
     Strategies (tried in order):
-      1. Find a section headed "幕内" and parse <table> rows below it.
-      2. Look for table rows with class hints (east/west).
-      3. Generic table parsing: assume 1st and 3rd columns are wrestlers.
+      1. Yahoo Sports Navi specific: su-scoreTable__data--name class
+      2. Generic: heading "幕内" near a table with east/west or positional cells
     """
     soup = BeautifulSoup(html, "html.parser")
-    matches: list[dict[str, str]] = []
 
-    # Strategy 1 & 2: Find the makuuchi section
-    makuuchi_section = _find_makuuchi_section(soup)
-    if makuuchi_section is not None:
-        table = makuuchi_section.find("table")
-        if table:
-            matches = _parse_table(table)
-            if matches:
-                return matches
+    # Strategy 1: Yahoo Sports Navi specific structure
+    # Find h3 with exact text "幕内" (not "幕内優勝決定戦" etc.)
+    matches = _parse_yahoo_structure(soup)
+    if matches:
+        return matches
 
-    # Strategy 3: Find all tables, look for one near a "幕内" text
-    for heading in soup.find_all(re.compile(r"^h[1-6]$")):
-        if "幕内" in heading.get_text():
-            # Walk siblings to find the next table
-            sibling = heading.find_next_sibling()
-            while sibling:
-                if sibling.name == "table":
-                    matches = _parse_table(sibling)
-                    if matches:
-                        return matches
-                    break
-                # Also check if the table is nested inside a div sibling
-                if sibling.name == "div":
-                    inner_table = sibling.find("table")
-                    if inner_table:
-                        matches = _parse_table(inner_table)
-                        if matches:
-                            return matches
-                sibling = sibling.find_next_sibling()
+    # Strategy 2: Generic fallback - heading near table
+    matches = _parse_generic_structure(soup)
+    if matches:
+        return matches
 
     # 幕内セクションが見つからなかった場合は空リストを返す
     logger.warning("幕内セクションが見つかりませんでした")
     return []
 
 
-def _find_makuuchi_section(soup: BeautifulSoup):
-    """Find the container element for the makuuchi section."""
-    # Look for elements that contain "幕内" text
-    for el in soup.find_all(string=re.compile("幕内")):
-        parent = el.parent
-        if parent is None:
-            continue
-        # Walk up to find a section-like container
-        for _ in range(5):
-            if parent is None:
-                break
-            # Check if this container has a <table> child
-            if parent.find("table"):
-                return parent
-            parent = parent.parent
-    return None
+def _strip_record(name: str) -> str:
+    """Remove win-loss record suffix like '10勝5敗' from wrestler name."""
+    return re.sub(r"\d+勝\d+敗$", "", name).strip()
 
 
-def _parse_table(table) -> list[dict[str, str]]:
-    """Extract east/west wrestler pairs from a table element."""
+def _parse_yahoo_structure(soup: BeautifulSoup) -> list[dict[str, str]]:
+    """Parse Yahoo Sports Navi specific HTML structure.
+
+    Structure:
+      <header class="su-head02">
+        <h3 class="su-scoreTable__title">幕内</h3>
+      </header>
+      ... (within same parent div)
+      <table>
+        <tr>
+          <td class="su-scoreTable__data--rank">番付</td>
+          <td class="su-scoreTable__data--name">力士名</td>
+          ...
+          <td class="su-scoreTable__data--name">力士名</td>
+          <td class="su-scoreTable__data--rank">番付</td>
+        </tr>
+      </table>
+    """
     matches: list[dict[str, str]] = []
-    rows = table.find_all("tr")
 
-    for row in rows:
-        cells = row.find_all("td")
-        if not cells:
-            continue
+    # Find h3 with exact text "幕内"
+    makuuchi_heading = None
+    for h3 in soup.find_all("h3"):
+        if h3.get_text(strip=True) == "幕内":
+            makuuchi_heading = h3
+            break
 
-        east, west = _extract_pair_from_cells(cells)
-        if east and west:
-            matches.append({"east": east, "west": west})
+    if makuuchi_heading is None:
+        return []
+
+    # Navigate to the container (grandparent: h3 -> header -> div)
+    container = makuuchi_heading.parent
+    if container:
+        container = container.parent
+
+    if container is None:
+        return []
+
+    # Find tables in container, use the largest one (skip small ones like 優勝決定戦)
+    tables = container.find_all("table")
+    target_table = None
+    max_rows = 0
+    for table in tables:
+        rows = table.find_all("tr")
+        if len(rows) > max_rows:
+            max_rows = len(rows)
+            target_table = table
+
+    if target_table is None:
+        return []
+
+    for row in target_table.find_all("tr"):
+        name_cells = row.find_all(
+            "td",
+            class_=lambda c: c and "su-scoreTable__data--name" in c
+        )
+        if len(name_cells) >= 2:
+            east = _strip_record(name_cells[0].get_text(strip=True))
+            west = _strip_record(name_cells[1].get_text(strip=True))
+            if east and west:
+                matches.append({"east": east, "west": west})
 
     return matches
 
 
-def _extract_pair_from_cells(cells) -> tuple[str, str]:
-    """Try to extract an (east, west) pair from table cells.
+def _parse_generic_structure(soup: BeautifulSoup) -> list[dict[str, str]]:
+    """Generic fallback: find tables near "幕内" headings."""
+    for heading in soup.find_all(re.compile(r"^h[1-6]$")):
+        text = heading.get_text(strip=True)
+        if text == "幕内" or (text.startswith("幕内") and "優勝" not in text):
+            # Walk up to find container with table
+            parent = heading.parent
+            for _ in range(5):
+                if parent is None:
+                    break
+                table = parent.find("table")
+                if table:
+                    matches = _parse_table_generic(table)
+                    if matches:
+                        return matches
+                parent = parent.parent
+    return []
 
-    Approach A: cells with class containing 'east' / 'west'.
-    Approach B: first and last text-containing cells (skip middle result cell).
-    """
-    east = ""
-    west = ""
 
-    # Approach A: class-based
-    for cell in cells:
-        classes = cell.get("class", [])
-        class_str = " ".join(classes) if isinstance(classes, list) else str(classes)
-        text = cell.get_text(strip=True)
-        if "east" in class_str and text:
-            east = text
-        elif "west" in class_str and text:
-            west = text
+def _parse_table_generic(table) -> list[dict[str, str]]:
+    """Extract east/west wrestler pairs from a table (generic approach)."""
+    matches: list[dict[str, str]] = []
+    for row in table.find_all("tr"):
+        cells = row.find_all("td")
+        if not cells:
+            continue
 
-    if east and west:
-        return east, west
+        # Try class-based detection first
+        name_cells = [
+            c for c in cells
+            if any("name" in cls for cls in (c.get("class") or []))
+        ]
+        if len(name_cells) >= 2:
+            east = _strip_record(name_cells[0].get_text(strip=True))
+            west = _strip_record(name_cells[1].get_text(strip=True))
+            if east and west:
+                matches.append({"east": east, "west": west})
+                continue
 
-    # Approach B: positional (first and last non-empty text cells)
-    texts = [c.get_text(strip=True) for c in cells]
-    non_empty = [(i, t) for i, t in enumerate(texts) if t and t != "-"]
-    if len(non_empty) >= 2:
-        east = non_empty[0][1]
-        west = non_empty[-1][1]
+        # Positional fallback: first and last non-empty cells
+        texts = [c.get_text(strip=True) for c in cells]
+        non_empty = [t for t in texts if t and t != "-"]
+        if len(non_empty) >= 2:
+            east = _strip_record(non_empty[0])
+            west = _strip_record(non_empty[-1])
+            if east and west:
+                matches.append({"east": east, "west": west})
 
-    return east, west
+    return matches
 
 
 # ---------------------------------------------------------------------------
