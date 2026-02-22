@@ -168,26 +168,31 @@ def _parse_yahoo_structure(soup: BeautifulSoup) -> list[dict[str, str]]:
             makuuchi_heading = h3
             break
 
-    if makuuchi_heading is None:
-        return []
-
-    # Navigate to the container (grandparent: h3 -> header -> div)
-    container = makuuchi_heading.parent
-    if container:
-        container = container.parent
-
-    if container is None:
-        return []
-
-    # Find tables in container, use the largest one (skip small ones like 優勝決定戦)
-    tables = container.find_all("table")
     target_table = None
-    max_rows = 0
-    for table in tables:
-        rows = table.find_all("tr")
-        if len(rows) > max_rows:
-            max_rows = len(rows)
-            target_table = table
+
+    # Approach A: h3 with exact text "幕内" -> sibling <table>
+    if makuuchi_heading is not None:
+        header_el = makuuchi_heading.parent
+        if header_el:
+            sibling = header_el.find_next_sibling()
+            while sibling:
+                if sibling.name == "table":
+                    target_table = sibling
+                    break
+                if sibling.name == "header":
+                    break
+                sibling = sibling.find_next_sibling()
+
+    # Approach B: tab structure - <a href="#js-tabDom01">幕内</a> -> div#js-tabDom01
+    if target_table is None:
+        for tab_link in soup.find_all("a", class_="su-tab__link"):
+            if tab_link.get_text(strip=True) == "幕内":
+                href = tab_link.get("href", "")
+                if href.startswith("#"):
+                    tab_dom = soup.find("div", id=href[1:])
+                    if tab_dom:
+                        target_table = tab_dom.find("table")
+                break
 
     if target_table is None:
         return []
