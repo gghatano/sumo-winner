@@ -5,9 +5,12 @@ interface Props {
   predictions: Record<number, Prediction>
   onPredict: (index: number, value: Prediction) => void
   readOnly?: boolean
+  answers?: Record<number, 'E' | 'W'>
+  showResult?: boolean
+  revealedCount?: number
 }
 
-export default function MatchList({ matches, predictions, onPredict, readOnly }: Props) {
+export default function MatchList({ matches, predictions, onPredict, readOnly, answers, showResult, revealedCount }: Props) {
   // デフォルトは東勝ち('E')。nullは発生しない
   const getPred = (index: number): 'E' | 'W' => predictions[index] ?? 'E'
 
@@ -24,15 +27,30 @@ export default function MatchList({ matches, predictions, onPredict, readOnly }:
     }
   }
 
+  const isRevealed = (index: number): boolean => {
+    if (!showResult || !answers) return false
+    if (revealedCount === undefined) return true
+    return index < revealedCount
+  }
+
+  const getResultClass = (index: number): string => {
+    if (!isRevealed(index)) return ''
+    const pred = getPred(index)
+    const answer = answers![index]
+    if (pred === answer) return ' correct'
+    return ' incorrect'
+  }
+
   return (
     <div className="match-list">
       {matches.map((match, index) => {
         const eastWin = getPred(index) === 'E'
+        const isClickable = !readOnly && !showResult
         return (
-          <div key={index} className="match-card">
+          <div key={index} className={`match-card${getResultClass(index)}`}>
             <div
-              className={`wrestler east${eastWin ? ' winner' : ' loser'}${readOnly ? ' readonly' : ''}`}
-              onClick={() => !readOnly && handleClickEast(index)}
+              className={`wrestler east${eastWin ? ' winner' : ' loser'}${(readOnly || showResult) ? ' readonly' : ''}`}
+              onClick={() => isClickable && handleClickEast(index)}
             >
               <span className="wrestler-name">{match.east}</span>
               <span className={`result-label ${eastWin ? 'win-label' : 'lose-label'}`}>
@@ -45,14 +63,19 @@ export default function MatchList({ matches, predictions, onPredict, readOnly }:
               <span className={`mark${eastWin ? ' lose' : ' win'}`}>{eastWin ? '\u25CF' : '\u25CB'}</span>
             </div>
             <div
-              className={`wrestler west${eastWin ? ' loser' : ' winner'}${readOnly ? ' readonly' : ''}`}
-              onClick={() => !readOnly && handleClickWest(index)}
+              className={`wrestler west${eastWin ? ' loser' : ' winner'}${(readOnly || showResult) ? ' readonly' : ''}`}
+              onClick={() => isClickable && handleClickWest(index)}
             >
               <span className="wrestler-name">{match.west}</span>
               <span className={`result-label ${eastWin ? 'lose-label' : 'win-label'}`}>
                 {eastWin ? '(負け)' : '(勝ち)'}
               </span>
             </div>
+            {isRevealed(index) && (
+              <div className={`quiz-result-mark ${getPred(index) === answers![index] ? 'correct' : 'incorrect'}`}>
+                {getPred(index) === answers![index] ? '\u25CB' : '\u2715'}
+              </div>
+            )}
           </div>
         )
       })}

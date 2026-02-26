@@ -1,10 +1,11 @@
 import { useState, useEffect, useMemo } from 'react'
-import { fetchIndex, fetchTorikumi } from './lib/api'
+import { fetchIndex, fetchTorikumi, fetchQuizIndex } from './lib/api'
 import { formatBashoDay, generateMatchLines, assemblePredictionText } from './lib/format'
 import { usePredictions } from './hooks/usePredictions'
 import BashoSelector from './components/BashoSelector'
 import MatchList from './components/MatchList'
 import { PredictionPreview } from './components/PredictionPreview'
+import QuizView from './components/QuizView'
 import type { TorikumiData, BashoInfo } from './types'
 import './App.css'
 
@@ -17,6 +18,8 @@ function App() {
   const [fetching, setFetching] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [status, setStatus] = useState<'active' | 'off-season'>('active')
+  const [quizMode, setQuizMode] = useState(false)
+  const [quizAvailable, setQuizAvailable] = useState(false)
 
   const division = data?.division ?? 'makuuchi'
   const { predictions, setPrediction } = usePredictions(selectedBashoId, day, division)
@@ -36,6 +39,15 @@ function App() {
       .catch((e) => {
         setError(e.message)
         setLoading(false)
+      })
+
+    // Check quiz availability
+    fetchQuizIndex()
+      .then((index) => {
+        setQuizAvailable(index.bashoList.length > 0)
+      })
+      .catch(() => {
+        setQuizAvailable(false)
       })
   }, [])
 
@@ -119,6 +131,9 @@ function App() {
   if (!data) return null
 
   if (status === 'off-season') {
+    if (quizMode) {
+      return <QuizView onExit={() => setQuizMode(false)} />
+    }
     return (
       <div className="app">
         <header className="app-header">
@@ -128,6 +143,13 @@ function App() {
         <div className="off-season-banner">
           <p>現在は場所期間外です</p>
         </div>
+        {quizAvailable && (
+          <div className="quiz-start-section">
+            <button className="quiz-start-button" onClick={() => setQuizMode(true)}>
+              クイズに挑戦!
+            </button>
+          </div>
+        )}
         <div className="latest-matches-section">
           <h2>直近の取組（{data.basho.label} {data.day}日目）</h2>
           <MatchList

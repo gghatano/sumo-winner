@@ -1,0 +1,1652 @@
+{
+  "basho": {
+    "id": "202303",
+    "label": "2023年3月場所"
+  },
+  "days": {
+    "1": [
+      {
+        "east": "若隆景",
+        "west": "玉鷲",
+        "winner": "W",
+        "kimarite": "tsukiotoshi"
+      },
+      {
+        "east": "正代",
+        "west": "豊昇龍",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "若元春",
+        "west": "竜電",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "御嶽海",
+        "west": "琴ノ若",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "大栄翔",
+        "west": "錦木",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "阿武咲",
+        "west": "明生",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "琴勝峰",
+        "west": "翠富士",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "遠藤",
+        "west": "佐田の海",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "北勝富士",
+        "west": "高安",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "一山本",
+        "west": "宇良",
+        "winner": "W",
+        "kimarite": "hatakikomi"
+      },
+      {
+        "east": "碧山",
+        "west": "平戸海",
+        "winner": "E",
+        "kimarite": "kotenage"
+      },
+      {
+        "east": "妙義龍",
+        "west": "錦富士",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "東龍",
+        "west": "隆の勝",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "輝",
+        "west": "宝富士",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "大翔鵬",
+        "west": "琴恵光",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "金峰山",
+        "west": "武将山",
+        "winner": "E",
+        "kimarite": "okuridashi"
+      },
+      {
+        "east": "北青鵬",
+        "west": "王鵬",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "千代翔馬",
+        "west": "剣翔",
+        "winner": "W",
+        "kimarite": "shitatedashinage"
+      }
+    ],
+    "2": [
+      {
+        "east": "阿炎",
+        "west": "豊昇龍",
+        "winner": "E",
+        "kimarite": "hikiotoshi"
+      },
+      {
+        "east": "若隆景",
+        "west": "大栄翔",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "竜電",
+        "west": "琴ノ若",
+        "winner": "W",
+        "kimarite": "katasukashi"
+      },
+      {
+        "east": "御嶽海",
+        "west": "翔猿",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "若元春",
+        "west": "錦木",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "琴勝峰",
+        "west": "明生",
+        "winner": "W",
+        "kimarite": "yoritaoshi"
+      },
+      {
+        "east": "阿武咲",
+        "west": "翠富士",
+        "winner": "W",
+        "kimarite": "hatakikomi"
+      },
+      {
+        "east": "北勝富士",
+        "west": "佐田の海",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "遠藤",
+        "west": "高安",
+        "winner": "W",
+        "kimarite": "hikiotoshi"
+      },
+      {
+        "east": "碧山",
+        "west": "宇良",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "一山本",
+        "west": "平戸海",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "東龍",
+        "west": "錦富士",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "妙義龍",
+        "west": "隆の勝",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "大翔鵬",
+        "west": "宝富士",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "輝",
+        "west": "琴恵光",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "北青鵬",
+        "west": "武将山",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "金峰山",
+        "west": "王鵬",
+        "winner": "E",
+        "kimarite": "tsukidashi"
+      },
+      {
+        "east": "東白龍",
+        "west": "剣翔",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      }
+    ],
+    "3": [
+      {
+        "east": "若隆景",
+        "west": "阿炎",
+        "winner": "W",
+        "kimarite": "hatakikomi"
+      },
+      {
+        "east": "琴ノ若",
+        "west": "豊昇龍",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "大栄翔",
+        "west": "竜電",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "錦木",
+        "west": "翔猿",
+        "winner": "W",
+        "kimarite": "tsukiotoshi"
+      },
+      {
+        "east": "若元春",
+        "west": "御嶽海",
+        "winner": "W",
+        "kimarite": "yoritaoshi"
+      },
+      {
+        "east": "阿武咲",
+        "west": "琴勝峰",
+        "winner": "E",
+        "kimarite": "tsukiotoshi"
+      },
+      {
+        "east": "翠富士",
+        "west": "明生",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "遠藤",
+        "west": "北勝富士",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "高安",
+        "west": "佐田の海",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "一山本",
+        "west": "碧山",
+        "winner": "W",
+        "kimarite": "hatakikomi"
+      },
+      {
+        "east": "平戸海",
+        "west": "宇良",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "妙義龍",
+        "west": "東龍",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "隆の勝",
+        "west": "錦富士",
+        "winner": "W",
+        "kimarite": "yoritaoshi"
+      },
+      {
+        "east": "輝",
+        "west": "大翔鵬",
+        "winner": "W",
+        "kimarite": "kimedashi"
+      },
+      {
+        "east": "琴恵光",
+        "west": "宝富士",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "金峰山",
+        "west": "北青鵬",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "王鵬",
+        "west": "武将山",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "千代翔馬",
+        "west": "栃ノ心",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      }
+    ],
+    "4": [
+      {
+        "east": "若隆景",
+        "west": "正代",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "玉鷲",
+        "west": "豊昇龍",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "竜電",
+        "west": "翔猿",
+        "winner": "E",
+        "kimarite": "uwatedashinage"
+      },
+      {
+        "east": "錦木",
+        "west": "琴ノ若",
+        "winner": "W",
+        "kimarite": "katasukashi"
+      },
+      {
+        "east": "大栄翔",
+        "west": "御嶽海",
+        "winner": "E",
+        "kimarite": "tsukidashi"
+      },
+      {
+        "east": "遠藤",
+        "west": "明生",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "阿武咲",
+        "west": "佐田の海",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "北勝富士",
+        "west": "翠富士",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "琴勝峰",
+        "west": "高安",
+        "winner": "W",
+        "kimarite": "tsukidashi"
+      },
+      {
+        "east": "妙義龍",
+        "west": "宇良",
+        "winner": "E",
+        "kimarite": "hatakikomi"
+      },
+      {
+        "east": "一山本",
+        "west": "錦富士",
+        "winner": "W",
+        "kimarite": "yoritaoshi"
+      },
+      {
+        "east": "東龍",
+        "west": "平戸海",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "碧山",
+        "west": "隆の勝",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "金峰山",
+        "west": "宝富士",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "輝",
+        "west": "武将山",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "剣翔",
+        "west": "琴恵光",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "大翔鵬",
+        "west": "千代翔馬",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "千代の国",
+        "west": "王鵬",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      }
+    ],
+    "5": [
+      {
+        "east": "錦木",
+        "west": "豊昇龍",
+        "winner": "E",
+        "kimarite": "kotenage"
+      },
+      {
+        "east": "若隆景",
+        "west": "御嶽海",
+        "winner": "W",
+        "kimarite": "tsukihiza"
+      },
+      {
+        "east": "若元春",
+        "west": "玉鷲",
+        "winner": "E",
+        "kimarite": "hatakikomi"
+      },
+      {
+        "east": "翔猿",
+        "west": "琴ノ若",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "大栄翔",
+        "west": "正代",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "阿炎",
+        "west": "明生",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "琴勝峰",
+        "west": "遠藤",
+        "winner": "W",
+        "kimarite": "tsukiotoshi"
+      },
+      {
+        "east": "佐田の海",
+        "west": "翠富士",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "北勝富士",
+        "west": "一山本",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "宇良",
+        "west": "高安",
+        "winner": "W",
+        "kimarite": "tsukiotoshi"
+      },
+      {
+        "east": "碧山",
+        "west": "妙義龍",
+        "winner": "E",
+        "kimarite": "oshitaoshi"
+      },
+      {
+        "east": "錦富士",
+        "west": "平戸海",
+        "winner": "E",
+        "kimarite": "uwatenage"
+      },
+      {
+        "east": "東龍",
+        "west": "輝",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "宝富士",
+        "west": "隆の勝",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "大翔鵬",
+        "west": "王鵬",
+        "winner": "W",
+        "kimarite": "hikiotoshi"
+      },
+      {
+        "east": "千代翔馬",
+        "west": "琴恵光",
+        "winner": "W",
+        "kimarite": "sukuinage"
+      },
+      {
+        "east": "金峰山",
+        "west": "剣翔",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "北青鵬",
+        "west": "逸ノ城",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      }
+    ],
+    "6": [
+      {
+        "east": "若隆景",
+        "west": "竜電",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "阿武咲",
+        "west": "豊昇龍",
+        "winner": "W",
+        "kimarite": "hatakikomi"
+      },
+      {
+        "east": "大栄翔",
+        "west": "琴ノ若",
+        "winner": "E",
+        "kimarite": "tsukiotoshi"
+      },
+      {
+        "east": "若元春",
+        "west": "翔猿",
+        "winner": "E",
+        "kimarite": "hatakikomi"
+      },
+      {
+        "east": "玉鷲",
+        "west": "正代",
+        "winner": "W",
+        "kimarite": "tsukiotoshi"
+      },
+      {
+        "east": "阿炎",
+        "west": "琴勝峰",
+        "winner": "E",
+        "kimarite": "hatakikomi"
+      },
+      {
+        "east": "佐田の海",
+        "west": "明生",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "遠藤",
+        "west": "翠富士",
+        "winner": "W",
+        "kimarite": "katasukashi"
+      },
+      {
+        "east": "一山本",
+        "west": "高安",
+        "winner": "W",
+        "kimarite": "shitatenage"
+      },
+      {
+        "east": "北勝富士",
+        "west": "宇良",
+        "winner": "E",
+        "kimarite": "hatakikomi"
+      },
+      {
+        "east": "隆の勝",
+        "west": "平戸海",
+        "winner": "W",
+        "kimarite": "uwatenage"
+      },
+      {
+        "east": "碧山",
+        "west": "錦富士",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "妙義龍",
+        "west": "輝",
+        "winner": "E",
+        "kimarite": "tsukiotoshi"
+      },
+      {
+        "east": "東龍",
+        "west": "千代翔馬",
+        "winner": "W",
+        "kimarite": "hatakikomi"
+      },
+      {
+        "east": "剣翔",
+        "west": "宝富士",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "金峰山",
+        "west": "琴恵光",
+        "winner": "W",
+        "kimarite": "sukuinage"
+      },
+      {
+        "east": "大翔鵬",
+        "west": "北青鵬",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "湘南乃海",
+        "west": "武将山",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      }
+    ],
+    "7": [
+      {
+        "east": "若隆景",
+        "west": "阿武咲",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "竜電",
+        "west": "豊昇龍",
+        "winner": "W",
+        "kimarite": "katasukashi"
+      },
+      {
+        "east": "若元春",
+        "west": "大栄翔",
+        "winner": "E",
+        "kimarite": "tsukiotoshi"
+      },
+      {
+        "east": "玉鷲",
+        "west": "翔猿",
+        "winner": "W",
+        "kimarite": "hikiotoshi"
+      },
+      {
+        "east": "阿炎",
+        "west": "正代",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "御嶽海",
+        "west": "明生",
+        "winner": "W",
+        "kimarite": "hikiotoshi"
+      },
+      {
+        "east": "琴勝峰",
+        "west": "佐田の海",
+        "winner": "E",
+        "kimarite": "hatakikomi"
+      },
+      {
+        "east": "高安",
+        "west": "翠富士",
+        "winner": "W",
+        "kimarite": "tsukiotoshi"
+      },
+      {
+        "east": "遠藤",
+        "west": "碧山",
+        "winner": "E",
+        "kimarite": "oshitaoshi"
+      },
+      {
+        "east": "北勝富士",
+        "west": "平戸海",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "一山本",
+        "west": "妙義龍",
+        "winner": "E",
+        "kimarite": "katasukashi"
+      },
+      {
+        "east": "錦富士",
+        "west": "宇良",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "東龍",
+        "west": "宝富士",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "北青鵬",
+        "west": "隆の勝",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "輝",
+        "west": "千代翔馬",
+        "winner": "W",
+        "kimarite": "oshitaoshi"
+      },
+      {
+        "east": "大翔鵬",
+        "west": "武将山",
+        "winner": "W",
+        "kimarite": "tottari"
+      },
+      {
+        "east": "金峰山",
+        "west": "千代丸",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "剣翔",
+        "west": "王鵬",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      }
+    ],
+    "8": [
+      {
+        "east": "御嶽海",
+        "west": "豊昇龍",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "若隆景",
+        "west": "錦木",
+        "winner": "E",
+        "kimarite": "tsukiotoshi"
+      },
+      {
+        "east": "若元春",
+        "west": "正代",
+        "winner": "W",
+        "kimarite": "yoritaoshi"
+      },
+      {
+        "east": "玉鷲",
+        "west": "琴ノ若",
+        "winner": "W",
+        "kimarite": "yoritaoshi"
+      },
+      {
+        "east": "大栄翔",
+        "west": "阿炎",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "明生",
+        "west": "竜電",
+        "winner": "E",
+        "kimarite": "tsukiotoshi"
+      },
+      {
+        "east": "阿武咲",
+        "west": "遠藤",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "碧山",
+        "west": "翠富士",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "琴勝峰",
+        "west": "北勝富士",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "一山本",
+        "west": "佐田の海",
+        "winner": "E",
+        "kimarite": "hatakikomi"
+      },
+      {
+        "east": "平戸海",
+        "west": "高安",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "隆の勝",
+        "west": "宇良",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "輝",
+        "west": "錦富士",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "妙義龍",
+        "west": "剣翔",
+        "winner": "W",
+        "kimarite": "sukuinage"
+      },
+      {
+        "east": "東龍",
+        "west": "武将山",
+        "winner": "W",
+        "kimarite": "tsukiotoshi"
+      },
+      {
+        "east": "王鵬",
+        "west": "宝富士",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "北青鵬",
+        "west": "琴恵光",
+        "winner": "E",
+        "kimarite": "harimanage"
+      },
+      {
+        "east": "金峰山",
+        "west": "千代翔馬",
+        "winner": "E",
+        "kimarite": "tsuridashi"
+      }
+    ],
+    "9": [
+      {
+        "east": "若隆景",
+        "west": "明生",
+        "winner": "E",
+        "kimarite": "oshitaoshi"
+      },
+      {
+        "east": "翔猿",
+        "west": "豊昇龍",
+        "winner": "W",
+        "kimarite": "hatakikomi"
+      },
+      {
+        "east": "若元春",
+        "west": "阿炎",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "正代",
+        "west": "琴ノ若",
+        "winner": "W",
+        "kimarite": "oshitaoshi"
+      },
+      {
+        "east": "大栄翔",
+        "west": "玉鷲",
+        "winner": "E",
+        "kimarite": "tsukitaoshi"
+      },
+      {
+        "east": "御嶽海",
+        "west": "錦木",
+        "winner": "E",
+        "kimarite": "hatakikomi"
+      },
+      {
+        "east": "阿武咲",
+        "west": "北勝富士",
+        "winner": "W",
+        "kimarite": "fusen"
+      },
+      {
+        "east": "琴勝峰",
+        "west": "一山本",
+        "winner": "W",
+        "kimarite": "oshitaoshi"
+      },
+      {
+        "east": "宇良",
+        "west": "翠富士",
+        "winner": "W",
+        "kimarite": "oshitaoshi"
+      },
+      {
+        "east": "遠藤",
+        "west": "平戸海",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "東龍",
+        "west": "佐田の海",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "碧山",
+        "west": "高安",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "妙義龍",
+        "west": "大翔鵬",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "金峰山",
+        "west": "錦富士",
+        "winner": "W",
+        "kimarite": "shitatedashinage"
+      },
+      {
+        "east": "輝",
+        "west": "隆の勝",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "王鵬",
+        "west": "琴恵光",
+        "winner": "W",
+        "kimarite": "hikiotoshi"
+      },
+      {
+        "east": "剣翔",
+        "west": "武将山",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "北青鵬",
+        "west": "千代翔馬",
+        "winner": "W",
+        "kimarite": "uwatedashinage"
+      }
+    ],
+    "10": [
+      {
+        "east": "若隆景",
+        "west": "琴勝峰",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "大栄翔",
+        "west": "豊昇龍",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "阿炎",
+        "west": "琴ノ若",
+        "winner": "W",
+        "kimarite": "oshitaoshi"
+      },
+      {
+        "east": "翠富士",
+        "west": "翔猿",
+        "winner": "E",
+        "kimarite": "waridashi"
+      },
+      {
+        "east": "若元春",
+        "west": "明生",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "遠藤",
+        "west": "正代",
+        "winner": "E",
+        "kimarite": "sukuinage"
+      },
+      {
+        "east": "玉鷲",
+        "west": "竜電",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "佐田の海",
+        "west": "錦木",
+        "winner": "E",
+        "kimarite": "sukuinage"
+      },
+      {
+        "east": "金峰山",
+        "west": "高安",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "北勝富士",
+        "west": "碧山",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "北青鵬",
+        "west": "宇良",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "一山本",
+        "west": "東龍",
+        "winner": "W",
+        "kimarite": "hatakikomi"
+      },
+      {
+        "east": "琴恵光",
+        "west": "平戸海",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "大翔鵬",
+        "west": "錦富士",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "妙義龍",
+        "west": "千代翔馬",
+        "winner": "W",
+        "kimarite": "hatakikomi"
+      },
+      {
+        "east": "剣翔",
+        "west": "隆の勝",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "武将山",
+        "west": "宝富士",
+        "winner": "W",
+        "kimarite": "tsukiotoshi"
+      },
+      {
+        "east": "輝",
+        "west": "王鵬",
+        "winner": "E",
+        "kimarite": "hikiotoshi"
+      }
+    ],
+    "11": [
+      {
+        "east": "遠藤",
+        "west": "豊昇龍",
+        "winner": "W",
+        "kimarite": "uwatenage"
+      },
+      {
+        "east": "若隆景",
+        "west": "翔猿",
+        "winner": "E",
+        "kimarite": "okuridashi"
+      },
+      {
+        "east": "大栄翔",
+        "west": "高安",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "若元春",
+        "west": "翠富士",
+        "winner": "E",
+        "kimarite": "oshitaoshi"
+      },
+      {
+        "east": "北勝富士",
+        "west": "琴ノ若",
+        "winner": "E",
+        "kimarite": "hikiotoshi"
+      },
+      {
+        "east": "玉鷲",
+        "west": "御嶽海",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "宇良",
+        "west": "正代",
+        "winner": "E",
+        "kimarite": "katasukashi"
+      },
+      {
+        "east": "阿炎",
+        "west": "錦木",
+        "winner": "E",
+        "kimarite": "hatakikomi"
+      },
+      {
+        "east": "琴勝峰",
+        "west": "竜電",
+        "winner": "E",
+        "kimarite": "shitatenage"
+      },
+      {
+        "east": "宝富士",
+        "west": "佐田の海",
+        "winner": "E",
+        "kimarite": "kotenage"
+      },
+      {
+        "east": "一山本",
+        "west": "輝",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "碧山",
+        "west": "王鵬",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "武将山",
+        "west": "平戸海",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "妙義龍",
+        "west": "北青鵬",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "千代翔馬",
+        "west": "錦富士",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "琴恵光",
+        "west": "隆の勝",
+        "winner": "E",
+        "kimarite": "tsukiotoshi"
+      },
+      {
+        "east": "大翔鵬",
+        "west": "金峰山",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "欧勝馬",
+        "west": "剣翔",
+        "winner": "E",
+        "kimarite": "shitatenage"
+      }
+    ],
+    "12": [
+      {
+        "east": "若隆景",
+        "west": "翠富士",
+        "winner": "E",
+        "kimarite": "uwatedashinage"
+      },
+      {
+        "east": "正代",
+        "west": "翔猿",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "若元春",
+        "west": "遠藤",
+        "winner": "E",
+        "kimarite": "kotenage"
+      },
+      {
+        "east": "明生",
+        "west": "琴ノ若",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "大栄翔",
+        "west": "北勝富士",
+        "winner": "E",
+        "kimarite": "tsukidashi"
+      },
+      {
+        "east": "玉鷲",
+        "west": "錦木",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "佐田の海",
+        "west": "竜電",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "阿炎",
+        "west": "御嶽海",
+        "winner": "E",
+        "kimarite": "uwatenage"
+      },
+      {
+        "east": "琴勝峰",
+        "west": "宇良",
+        "winner": "E",
+        "kimarite": "kotenage"
+      },
+      {
+        "east": "錦富士",
+        "west": "高安",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "一山本",
+        "west": "武将山",
+        "winner": "E",
+        "kimarite": "uwatenage"
+      },
+      {
+        "east": "大翔鵬",
+        "west": "平戸海",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "碧山",
+        "west": "輝",
+        "winner": "E",
+        "kimarite": "hatakikomi"
+      },
+      {
+        "east": "妙義龍",
+        "west": "琴恵光",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "千代翔馬",
+        "west": "隆の勝",
+        "winner": "W",
+        "kimarite": "kotenage"
+      },
+      {
+        "east": "東龍",
+        "west": "剣翔",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "北青鵬",
+        "west": "宝富士",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "朝乃山",
+        "west": "王鵬",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      }
+    ],
+    "13": [
+      {
+        "east": "若隆景",
+        "west": "琴ノ若",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "翠富士",
+        "west": "豊昇龍",
+        "winner": "W",
+        "kimarite": "shitatenage"
+      },
+      {
+        "east": "若元春",
+        "west": "北勝富士",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "大栄翔",
+        "west": "明生",
+        "winner": "E",
+        "kimarite": "tsukidashi"
+      },
+      {
+        "east": "阿炎",
+        "west": "翔猿",
+        "winner": "E",
+        "kimarite": "okuridashi"
+      },
+      {
+        "east": "玉鷲",
+        "west": "琴勝峰",
+        "winner": "W",
+        "kimarite": "hikiotoshi"
+      },
+      {
+        "east": "竜電",
+        "west": "正代",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "御嶽海",
+        "west": "佐田の海",
+        "winner": "W",
+        "kimarite": "tsukiotoshi"
+      },
+      {
+        "east": "輝",
+        "west": "錦木",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "千代翔馬",
+        "west": "高安",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "一山本",
+        "west": "琴恵光",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "大翔鵬",
+        "west": "宇良",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "碧山",
+        "west": "剣翔",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "金峰山",
+        "west": "平戸海",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "妙義龍",
+        "west": "宝富士",
+        "winner": "W",
+        "kimarite": "tsukiotoshi"
+      },
+      {
+        "east": "北青鵬",
+        "west": "錦富士",
+        "winner": "W",
+        "kimarite": "sukuinage"
+      },
+      {
+        "east": "東龍",
+        "west": "王鵬",
+        "winner": "E",
+        "kimarite": "okuridashi"
+      },
+      {
+        "east": "逸ノ城",
+        "west": "武将山",
+        "winner": "E",
+        "kimarite": "uwatenage"
+      }
+    ],
+    "14": [
+      {
+        "east": "若元春",
+        "west": "豊昇龍",
+        "winner": "W",
+        "kimarite": "uwatenage"
+      },
+      {
+        "east": "遠藤",
+        "west": "琴ノ若",
+        "winner": "E",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "大栄翔",
+        "west": "翠富士",
+        "winner": "E",
+        "kimarite": "tsukitaoshi"
+      },
+      {
+        "east": "明生",
+        "west": "翔猿",
+        "winner": "W",
+        "kimarite": "kekaeshi"
+      },
+      {
+        "east": "大翔鵬",
+        "west": "正代",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "玉鷲",
+        "west": "佐田の海",
+        "winner": "W",
+        "kimarite": "okuridashi"
+      },
+      {
+        "east": "錦木",
+        "west": "竜電",
+        "winner": "E",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "阿炎",
+        "west": "金峰山",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "御嶽海",
+        "west": "隆の勝",
+        "winner": "W",
+        "kimarite": "okuridashi"
+      },
+      {
+        "east": "琴勝峰",
+        "west": "輝",
+        "winner": "E",
+        "kimarite": "shitatenage"
+      },
+      {
+        "east": "琴恵光",
+        "west": "高安",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "北勝富士",
+        "west": "千代翔馬",
+        "winner": "W",
+        "kimarite": "yoritaoshi"
+      },
+      {
+        "east": "東龍",
+        "west": "宇良",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "一山本",
+        "west": "宝富士",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "北青鵬",
+        "west": "平戸海",
+        "winner": "E",
+        "kimarite": "sukuinage"
+      },
+      {
+        "east": "碧山",
+        "west": "武将山",
+        "winner": "E",
+        "kimarite": "sukuinage"
+      },
+      {
+        "east": "剣翔",
+        "west": "錦富士",
+        "winner": "W",
+        "kimarite": "tsukidashi"
+      },
+      {
+        "east": "妙義龍",
+        "west": "王鵬",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      }
+    ],
+    "15": [
+      {
+        "east": "高安",
+        "west": "豊昇龍",
+        "winner": "E",
+        "kimarite": "uwatenage"
+      },
+      {
+        "east": "若元春",
+        "west": "琴ノ若",
+        "winner": "E",
+        "kimarite": "utchari"
+      },
+      {
+        "east": "佐田の海",
+        "west": "翔猿",
+        "winner": "W",
+        "kimarite": "uwatenage"
+      },
+      {
+        "east": "玉鷲",
+        "west": "明生",
+        "winner": "W",
+        "kimarite": "oshidashi"
+      },
+      {
+        "east": "翠富士",
+        "west": "正代",
+        "winner": "W",
+        "kimarite": "kimedashi"
+      },
+      {
+        "east": "阿炎",
+        "west": "遠藤",
+        "winner": "E",
+        "kimarite": "oshitaoshi"
+      },
+      {
+        "east": "御嶽海",
+        "west": "竜電",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "琴勝峰",
+        "west": "錦木",
+        "winner": "W",
+        "kimarite": "uwatenage"
+      },
+      {
+        "east": "北勝富士",
+        "west": "宝富士",
+        "winner": "W",
+        "kimarite": "tsukiotoshi"
+      },
+      {
+        "east": "一山本",
+        "west": "北青鵬",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "千代翔馬",
+        "west": "宇良",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "王鵬",
+        "west": "平戸海",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "妙義龍",
+        "west": "武将山",
+        "winner": "W",
+        "kimarite": "oshitaoshi"
+      },
+      {
+        "east": "琴恵光",
+        "west": "錦富士",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      },
+      {
+        "east": "東龍",
+        "west": "大翔鵬",
+        "winner": "E",
+        "kimarite": "shitatenage"
+      },
+      {
+        "east": "金峰山",
+        "west": "隆の勝",
+        "winner": "E",
+        "kimarite": "sukuinage"
+      },
+      {
+        "east": "輝",
+        "west": "剣翔",
+        "winner": "W",
+        "kimarite": "yorikiri"
+      }
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-import type { TorikumiData, TorikumiIndex } from '../types'
+import type { TorikumiData, TorikumiIndex, QuizIndex, QuizBashoData } from '../types'
 
 export function validateTorikumiData(data: unknown): TorikumiData {
   if (typeof data !== 'object' || data === null) {
@@ -73,4 +73,68 @@ export function validateTorikumiIndex(data: unknown): TorikumiIndex {
   }
 
   return data as TorikumiIndex
+}
+
+export function validateQuizIndex(data: unknown): QuizIndex {
+  if (typeof data !== 'object' || data === null) {
+    throw new Error('Invalid quiz index: not an object')
+  }
+  const d = data as Record<string, unknown>
+
+  if (!Array.isArray(d.bashoList)) {
+    throw new Error('Invalid quiz index: bashoList is not an array')
+  }
+  for (const basho of d.bashoList) {
+    if (typeof basho !== 'object' || basho === null) {
+      throw new Error('Invalid quiz index: invalid basho entry')
+    }
+    if (typeof basho.id !== 'string' || typeof basho.label !== 'string') {
+      throw new Error('Invalid quiz index: basho missing id/label')
+    }
+  }
+
+  return data as QuizIndex
+}
+
+export function validateQuizBashoData(data: unknown): QuizBashoData {
+  if (typeof data !== 'object' || data === null) {
+    throw new Error('Invalid quiz basho data: not an object')
+  }
+  const d = data as Record<string, unknown>
+
+  // basho
+  if (typeof d.basho !== 'object' || d.basho === null) {
+    throw new Error('Invalid quiz basho data: missing basho')
+  }
+  const basho = d.basho as Record<string, unknown>
+  if (typeof basho.id !== 'string' || typeof basho.label !== 'string') {
+    throw new Error('Invalid quiz basho data: invalid basho fields')
+  }
+
+  // days
+  if (typeof d.days !== 'object' || d.days === null) {
+    throw new Error('Invalid quiz basho data: missing days')
+  }
+  const days = d.days as Record<string, unknown>
+  for (const [, matches] of Object.entries(days)) {
+    if (!Array.isArray(matches)) {
+      throw new Error('Invalid quiz basho data: day matches is not an array')
+    }
+    for (const match of matches) {
+      if (typeof match !== 'object' || match === null) {
+        throw new Error('Invalid quiz basho data: invalid match entry')
+      }
+      if (typeof match.east !== 'string' || typeof match.west !== 'string') {
+        throw new Error('Invalid quiz basho data: match missing east/west')
+      }
+      if (match.winner !== 'E' && match.winner !== 'W') {
+        throw new Error('Invalid quiz basho data: match has invalid winner')
+      }
+      if (typeof match.kimarite !== 'string') {
+        throw new Error('Invalid quiz basho data: match missing kimarite')
+      }
+    }
+  }
+
+  return data as QuizBashoData
 }

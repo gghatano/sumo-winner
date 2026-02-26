@@ -31,3 +31,19 @@ export interface TorikumiIndex {
 
 export type Prediction = 'E' | 'W' | null
 export type Predictions = Record<number, Prediction>
+
+export interface QuizMatch {
+  east: string
+  west: string
+  winner: 'E' | 'W'
+  kimarite: string
+}
+
+export interface QuizBashoData {
+  basho: Basho
+  days: Record<string, QuizMatch[]>
+}
+
+export interface QuizIndex {
+  bashoList: Array<{ id: string; label: string }>
+}
