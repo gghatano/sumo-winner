@@ -4,9 +4,10 @@ interface Props {
   matches: Match[]
   predictions: Record<number, Prediction>
   onPredict: (index: number, value: Prediction) => void
+  readOnly?: boolean
 }
 
-export default function MatchList({ matches, predictions, onPredict }: Props) {
+export default function MatchList({ matches, predictions, onPredict, readOnly }: Props) {
   // デフォルトは東勝ち('E')。nullは発生しない
   const getPred = (index: number): 'E' | 'W' => predictions[index] ?? 'E'
 
@@ -30,8 +31,8 @@ export default function MatchList({ matches, predictions, onPredict }: Props) {
         return (
           <div key={index} className="match-card">
             <div
-              className={`wrestler east${eastWin ? ' winner' : ' loser'}`}
-              onClick={() => handleClickEast(index)}
+              className={`wrestler east${eastWin ? ' winner' : ' loser'}${readOnly ? ' readonly' : ''}`}
+              onClick={() => !readOnly && handleClickEast(index)}
             >
               <span className="wrestler-name">{match.east}</span>
               <span className={`result-label ${eastWin ? 'win-label' : 'lose-label'}`}>
@@ -44,8 +45,8 @@ export default function MatchList({ matches, predictions, onPredict }: Props) {
               <span className={`mark${eastWin ? ' lose' : ' win'}`}>{eastWin ? '\u25CF' : '\u25CB'}</span>
             </div>
             <div
-              className={`wrestler west${eastWin ? ' loser' : ' winner'}`}
-              onClick={() => handleClickWest(index)}
+              className={`wrestler west${eastWin ? ' loser' : ' winner'}${readOnly ? ' readonly' : ''}`}
+              onClick={() => !readOnly && handleClickWest(index)}
             >
               <span className="wrestler-name">{match.west}</span>
               <span className={`result-label ${eastWin ? 'lose-label' : 'win-label'}`}>

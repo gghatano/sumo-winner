@@ -67,5 +67,10 @@ export function validateTorikumiIndex(data: unknown): TorikumiIndex {
     throw new Error('Invalid index data: invalid latest fields')
   }
 
+  // status (optional, backward compatible)
+  if (d.status !== undefined && d.status !== 'active' && d.status !== 'off-season') {
+    throw new Error(`Invalid index data: invalid status '${d.status}'`)
+  }
+
   return data as TorikumiIndex
 }

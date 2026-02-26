@@ -26,6 +26,7 @@ export interface BashoInfo {
 export interface TorikumiIndex {
   bashoList: BashoInfo[]
   latest: { bashoId: string; day: number }
+  status?: 'active' | 'off-season'
 }
 
 export type Prediction = 'E' | 'W' | null

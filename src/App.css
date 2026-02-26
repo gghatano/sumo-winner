@@ -283,6 +283,37 @@ a.preview-value.source-url:hover {
   background: #27ae60;
 }
 
+/* Off-season */
+.off-season-banner {
+  text-align: center;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  background-color: #fef9e7;
+  border: 1px solid #f9e79f;
+  border-radius: 8px;
+  color: #7d6608;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.latest-matches-section {
+  margin-bottom: 1.5rem;
+}
+
+.latest-matches-section h2 {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 0.75rem;
+}
+
+.match-card .wrestler.readonly {
+  cursor: default;
+}
+
+.match-card .wrestler.readonly.loser:hover {
+  background-color: transparent;
+}
+
 /* Mobile responsive */
 @media (max-width: 480px) {
   .app {

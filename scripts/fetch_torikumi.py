@@ -347,6 +347,19 @@ def detect_latest(html: str | None = None) -> tuple[str | None, int | None]:
     return parse_top_page(html)
 
 
+def update_index_status(output_dir: Path, status: str) -> None:
+    """Update the status field in index.json."""
+    index_path = output_dir / "index.json"
+    if not index_path.exists():
+        logger.warning("index.json not found at %s", index_path)
+        return
+    with open(index_path, encoding="utf-8") as f:
+        index_data = json.load(f)
+    index_data["status"] = status
+    save_json(index_data, index_path)
+    logger.info("Updated index.json status to '%s'", status)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Fetch sumo torikumi data from Yahoo! Sports Navi"
@@ -405,6 +418,9 @@ def main() -> None:
     # Update latest.json with the last successful result
     if latest_data is not None:
         save_json(latest_data, output_dir / "latest.json")
+
+    # Update index.json with status
+    update_index_status(output_dir, "active" if success_count > 0 else "off-season")
 
     if success_count == 0 and fail_count > 0:
         logger.error("全ての取得に失敗しました")

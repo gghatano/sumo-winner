@@ -16,6 +16,7 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [fetching, setFetching] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [status, setStatus] = useState<'active' | 'off-season'>('active')
 
   const division = data?.division ?? 'makuuchi'
   const { predictions, setPrediction } = usePredictions(selectedBashoId, day, division)
@@ -24,6 +25,7 @@ function App() {
     fetchIndex()
       .then(async (index) => {
         setBashoList(index.bashoList)
+        setStatus(index.status ?? 'active')
         const { bashoId, day: latestDay } = index.latest
         setSelectedBashoId(bashoId)
         setDay(latestDay)
@@ -115,6 +117,29 @@ function App() {
   if (loading) return <div className="app"><p>読み込み中...</p></div>
   if (error) return <div className="app"><p>エラー: {error}</p></div>
   if (!data) return null
+
+  if (status === 'off-season') {
+    return (
+      <div className="app">
+        <header className="app-header">
+          <h1>大相撲 取組予想メモ</h1>
+          <p className="updated-at">データ更新: {new Date(data.updatedAt).toLocaleString('ja-JP')}</p>
+        </header>
+        <div className="off-season-banner">
+          <p>現在は場所期間外です</p>
+        </div>
+        <div className="latest-matches-section">
+          <h2>直近の取組（{data.basho.label} {data.day}日目）</h2>
+          <MatchList
+            matches={data.matches}
+            predictions={predictions}
+            onPredict={() => {}}
+            readOnly
+          />
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="app">
